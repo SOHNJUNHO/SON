@@ -1,0 +1,18 @@
+version: '3'
+services:
+  ds:
+    build: /Docker/ds/ .
+    container_name: ML-DS
+    ports:
+      - "8890:8890"
+    volumes:
+      - "/project-ds:/app/project-ds"
+    command: jupyter notebook --ip=0.0.0.0 --port=8899 --allow-root --NotebookApp.token='12345'
+  engineer:
+    build: /Docker/engineer/ .
+    container_name: ML-Engineer
+    ports:
+      - "8899:8899"
+    volumes:
+      - "/project_engineer:/app/project_engineer"
+    command: jupyter notebook --ip=0.0.0.0 --port=8899 --allow-root --NotebookApp.token='12345'
