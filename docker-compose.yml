@@ -1,5 +1,0 @@
-services:
-  randomforest:
-    image: randomforest
-    build: .
-    container_name: randomforest
